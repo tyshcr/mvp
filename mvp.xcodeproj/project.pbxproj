@@ -14,6 +14,8 @@
 		797676161E268BF60083CE2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797676141E268BF60083CE2F /* LaunchScreen.storyboard */; };
 		797676211E268BF60083CE2F /* mvpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797676201E268BF60083CE2F /* mvpTests.swift */; };
 		7976762C1E268BF60083CE2F /* mvpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976762B1E268BF60083CE2F /* mvpUITests.swift */; };
+		7976763A1E268C170083CE2F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797676391E268C170083CE2F /* Team.swift */; };
+		7976763C1E268C320083CE2F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976763B1E268C320083CE2F /* Presenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		797676271E268BF60083CE2F /* mvpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mvpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7976762B1E268BF60083CE2F /* mvpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mvpUITests.swift; sourceTree = "<group>"; };
 		7976762D1E268BF60083CE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		797676391E268C170083CE2F /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		7976763B1E268C320083CE2F /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				797676121E268BF60083CE2F /* Assets.xcassets */,
 				797676141E268BF60083CE2F /* LaunchScreen.storyboard */,
 				797676171E268BF60083CE2F /* Info.plist */,
+				797676391E268C170083CE2F /* Team.swift */,
+				7976763B1E268C320083CE2F /* Presenter.swift */,
 			);
 			path = mvp;
 			sourceTree = "<group>";
@@ -259,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7976763A1E268C170083CE2F /* Team.swift in Sources */,
 				7976760E1E268BF60083CE2F /* ViewController.swift in Sources */,
+				7976763C1E268C320083CE2F /* Presenter.swift in Sources */,
 				7976760C1E268BF60083CE2F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +513,7 @@
 				797676321E268BF60083CE2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		797676331E268BF60083CE2F /* Build configuration list for PBXNativeTarget "mvpTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +522,7 @@
 				797676351E268BF60083CE2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		797676361E268BF60083CE2F /* Build configuration list for PBXNativeTarget "mvpUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +531,7 @@
 				797676381E268BF60083CE2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
