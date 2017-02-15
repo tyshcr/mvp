@@ -11,6 +11,8 @@ import XCTest
 
 class mvpTests: XCTestCase {
     
+    let presenter = Presenter()
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -31,6 +33,13 @@ class mvpTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testTeamName() {
+        let city = "Cleveland"
+        let nickname = "Cavaliers"
+        let fullName = presenter.teamName(city: city, nickname: nickname)
+        XCTAssertTrue(fullName=="Cleveland Cavaliers")
     }
     
 }
