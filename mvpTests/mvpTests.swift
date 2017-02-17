@@ -2,8 +2,8 @@
 //  mvpTests.swift
 //  mvpTests
 //
-//  Created by TYSH, CHRISTOPHER R [AG-Contractor/1000] on 1/11/17.
-//  Copyright © 2017 TYSH, CHRISTOPHER R [AG-Contractor/1000]. All rights reserved.
+//  Created by TYSH, CHRISTOPHER R on 1/11/17.
+//  Copyright © 2017 TYSH, CHRISTOPHER R All rights reserved.
 //
 
 import XCTest
@@ -40,6 +40,33 @@ class mvpTests: XCTestCase {
         let nickname = "Cavaliers"
         let fullName = presenter.teamName(city: city, nickname: nickname)
         XCTAssertTrue(fullName=="Cleveland Cavaliers")
+    }
+    
+    func testWinPercentage() {
+        var wins = 10
+        var losses = 10
+        var percentage = presenter.winPercentage(wins: wins, losses: losses)
+        XCTAssertTrue(percentage==".500")
+        
+        wins = 20
+        losses = 0
+        percentage = presenter.winPercentage(wins: wins, losses: losses)
+        XCTAssertTrue(percentage=="1.000")
+        
+        wins = 0
+        losses = 20
+        percentage = presenter.winPercentage(wins: wins, losses: losses)
+        XCTAssertTrue(percentage==".000")
+        
+        wins = 15
+        losses = 5
+        percentage = presenter.winPercentage(wins: wins, losses: losses)
+        XCTAssertTrue(percentage==".750")
+        
+        wins = 5
+        losses = 15
+        percentage = presenter.winPercentage(wins: wins, losses: losses)
+        XCTAssertTrue(percentage==".250")
     }
     
 }
