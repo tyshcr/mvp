@@ -50,7 +50,7 @@ extension ViewController: UITableViewDataSource {
         let currentCellData = processedData[indexPath.row]
         
         cell.textLabel?.text = currentCellData.fullName
-        cell.detailTextLabel?.text = String(currentCellData.wins) + " - " + String(currentCellData.losses)
+        cell.detailTextLabel?.text = "wins:" + String(currentCellData.wins) + "  losses:" + String(currentCellData.losses) + "  pct:" + currentCellData.percentage
         
         return cell
     }
