@@ -59,8 +59,10 @@ class Presenter {
         let percentage = Float(wins) / Float(games)
         var formattedPercentage =  String(format: "%.3f", percentage)
         
-        let index = formattedPercentage.index(formattedPercentage.startIndex, offsetBy: 1)
-        formattedPercentage = formattedPercentage.substring(from: index)
+        if (percentage<1.0) {
+            let index = formattedPercentage.index(formattedPercentage.startIndex, offsetBy: 1)
+            formattedPercentage = formattedPercentage.substring(from: index)
+        }
         
         return formattedPercentage
     }
