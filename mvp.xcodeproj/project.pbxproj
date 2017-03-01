@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79529ECB1E2E6E8F00B014B4 /* StandingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79529EC91E2E6E8F00B014B4 /* StandingsTableViewController.swift */; };
-		79529ECC1E2E6E8F00B014B4 /* StandingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79529ECA1E2E6E8F00B014B4 /* StandingsTableViewController.xib */; };
 		7976760C1E268BF60083CE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976760B1E268BF60083CE2F /* AppDelegate.swift */; };
 		7976760E1E268BF60083CE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976760D1E268BF60083CE2F /* ViewController.swift */; };
 		797676111E268BF60083CE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7976760F1E268BF60083CE2F /* Main.storyboard */; };
@@ -18,6 +16,7 @@
 		7976762C1E268BF60083CE2F /* mvpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976762B1E268BF60083CE2F /* mvpUITests.swift */; };
 		7976763A1E268C170083CE2F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797676391E268C170083CE2F /* Team.swift */; };
 		7976763C1E268C320083CE2F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976763B1E268C320083CE2F /* Presenter.swift */; };
+		797D53531E6721DF008708E0 /* Environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 797D53521E6721DF008708E0 /* Environment.plist */; };
 		79B460FC1E66268300251731 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B460FB1E66268300251731 /* Server.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		79529EC91E2E6E8F00B014B4 /* StandingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsTableViewController.swift; sourceTree = "<group>"; };
-		79529ECA1E2E6E8F00B014B4 /* StandingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandingsTableViewController.xib; sourceTree = "<group>"; };
 		797676081E268BF60083CE2F /* mvp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mvp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7976760B1E268BF60083CE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7976760D1E268BF60083CE2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +53,7 @@
 		7976762D1E268BF60083CE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		797676391E268C170083CE2F /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		7976763B1E268C320083CE2F /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		797D53521E6721DF008708E0 /* Environment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environment.plist; sourceTree = "<group>"; };
 		79B460FB1E66268300251731 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,17 +105,16 @@
 		7976760A1E268BF60083CE2F /* mvp */ = {
 			isa = PBXGroup;
 			children = (
+				7976760F1E268BF60083CE2F /* Main.storyboard */,
+				797676141E268BF60083CE2F /* LaunchScreen.storyboard */,
 				7976760B1E268BF60083CE2F /* AppDelegate.swift */,
 				7976760D1E268BF60083CE2F /* ViewController.swift */,
-				7976760F1E268BF60083CE2F /* Main.storyboard */,
-				797676121E268BF60083CE2F /* Assets.xcassets */,
-				797676141E268BF60083CE2F /* LaunchScreen.storyboard */,
-				797676171E268BF60083CE2F /* Info.plist */,
-				797676391E268C170083CE2F /* Team.swift */,
 				7976763B1E268C320083CE2F /* Presenter.swift */,
-				79529EC91E2E6E8F00B014B4 /* StandingsTableViewController.swift */,
-				79529ECA1E2E6E8F00B014B4 /* StandingsTableViewController.xib */,
+				797676391E268C170083CE2F /* Team.swift */,
 				79B460FB1E66268300251731 /* Server.swift */,
+				797676171E268BF60083CE2F /* Info.plist */,
+				797D53521E6721DF008708E0 /* Environment.plist */,
+				797676121E268BF60083CE2F /* Assets.xcassets */,
 			);
 			path = mvp;
 			sourceTree = "<group>";
@@ -203,7 +200,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "TYSH, CHRISTOPHER R [AG-Contractor/1000]";
 				TargetAttributes = {
 					797676071E268BF60083CE2F = {
@@ -247,9 +244,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				797D53531E6721DF008708E0 /* Environment.plist in Resources */,
 				797676161E268BF60083CE2F /* LaunchScreen.storyboard in Resources */,
 				797676131E268BF60083CE2F /* Assets.xcassets in Resources */,
-				79529ECC1E2E6E8F00B014B4 /* StandingsTableViewController.xib in Resources */,
 				797676111E268BF60083CE2F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +277,6 @@
 				7976763C1E268C320083CE2F /* Presenter.swift in Sources */,
 				7976760C1E268BF60083CE2F /* AppDelegate.swift in Sources */,
 				79B460FC1E66268300251731 /* Server.swift in Sources */,
-				79529ECB1E2E6E8F00B014B4 /* StandingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +349,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -403,6 +400,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

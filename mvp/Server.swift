@@ -7,14 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 class Server {
     
     func getData(completion: @escaping (_ teams: [[String: Any]] ) -> ()) {
-       
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate 
+        let dataUrl = appDelegate.dataUrl // Get dataUrl from AppDelegate.swift
+        
         let config = URLSessionConfiguration.default // Session Configuration
         let session = URLSession(configuration: config) // Load configuration into Session
-        let url = URL(string: "http://www.feltpad.net/nba.json")!
+        let url = URL(string: dataUrl)!
         
         let task = session.dataTask(with: url, completionHandler: {
             (data, response, error) in
