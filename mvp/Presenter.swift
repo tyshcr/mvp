@@ -32,22 +32,34 @@ class Presenter {
         
         data.removeAll()
         
-        // TODO: Fetch JSON from file / service
-        let team1 = Team(city: "Cleveland", nickname: "Cavaliers", wins: 29, losses: 11)
-        let team2 = Team(city: "Toronto", nickname: "Raptors", wins: 27, losses: 13)
-        let team3 = Team(city: "Boston", nickname: "Celtics", wins: 26, losses: 15)
+        let server = Server()
+        server.getData { (teams: [[String : Any]]) in
+
+            for team in teams {
+                
+                let city = team["first_name"] as! String
+                let nickname = team["last_name"] as! String
+                let fullName = self.teamName(city: city, nickname: nickname)
+                
+                let wins = team["won"] as! Int
+                let losses = team["lost"] as! Int
+                let percentage = self.winPercentage(wins: wins, losses: losses)
+                
+                let teamData = TeamViewData(fullName: fullName,
+                                            wins: wins,
+                                            losses: losses,
+                                            percentage: percentage)
+                self.data.append(teamData)
+
+            }
+                
+            DispatchQueue.main.async {
+                self.delegate?.setTeams(incomingData: self.data)
+                self.delegate?.finishLoading()
+            }
+            
+        }
         
-        // TODO: Loop through the data and format it for the view
-        let team1data = TeamViewData(fullName: teamName(city: team1.city, nickname: team1.nickname), wins: team1.wins, losses: team1.losses, percentage: winPercentage(wins: team1.wins, losses: team1.losses))
-        let team2data = TeamViewData(fullName: teamName(city: team2.city, nickname: team2.nickname), wins: team2.wins, losses: team2.losses, percentage: winPercentage(wins: team2.wins, losses: team2.losses))
-        let team3data = TeamViewData(fullName: teamName(city: team3.city, nickname: team3.nickname), wins: team3.wins, losses: team3.losses, percentage: winPercentage(wins: team3.wins, losses: team3.losses))
-        
-        data.append(team1data)
-        data.append(team2data)
-        data.append(team3data)
-        
-        delegate?.finishLoading()
-        delegate?.setTeams(incomingData: data)
     }
     
     func teamName(city: String, nickname: String) -> String {
