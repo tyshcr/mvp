@@ -2,7 +2,11 @@
 Swift Example of Model-View-Presenter pattern
 
 ## Environment.plist
-To run the app, you must create a file named `Environment.plist` with this format:
+To run the app, you must create a file named `Environment.plist`.
+
+See `EnvironmentExample.plist` for an example.
+
+Use this format:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -10,10 +14,10 @@ To run the app, you must create a file named `Environment.plist` with this forma
 <plist version="1.0">
 <dict>
 	<key>dataUrl</key>
-	<string>http://www.yoursite.com/nba.json</string>
+	<string>http://www.YourSite.com/nba.json</string>
 </dict>
 </plist>
 ```
 
 ## JSON Source
-Use `nba.json`, located in this project, and upload it to `http://www.yoursite.com/nba.json`
+Use `nba.json`, located in this project, and upload it to `http://www.YourSite.com/nba.json`

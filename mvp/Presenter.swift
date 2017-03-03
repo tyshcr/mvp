@@ -33,29 +33,37 @@ class Presenter {
         data.removeAll()
         
         let server = Server()
-        server.getData { (teams: [[String : Any]]) in
+        server.getData { (segments: [[String : Any]]) in
 
-            for team in teams {
+            // TODO: send data to Model for formatting, return via model.delegate, pass to view
+            
+            for segment in segments {
+            
+                let teams = segment["rows"] as! [[String:Any]]
                 
-                let city = team["first_name"] as! String
-                let nickname = team["last_name"] as! String
-                let fullName = self.teamName(city: city, nickname: nickname)
-                
-                let wins = team["won"] as! Int
-                let losses = team["lost"] as! Int
-                let percentage = self.winPercentage(wins: wins, losses: losses)
-                
-                let teamData = TeamViewData(fullName: fullName,
-                                            wins: wins,
-                                            losses: losses,
-                                            percentage: percentage)
-                self.data.append(teamData)
+                for team in teams {
+                    
+                    let city = team["name"] as! String
+                    let nickname = team["name"] as! String
+                    let fullName = self.teamName(city: city, nickname: nickname)
+                    
+                    let wins = team["won"] as! Int
+                    let losses = team["loss"] as! Int
+                    let percentage = self.winPercentage(wins: wins, losses: losses)
+                    
+                    let teamData = TeamViewData(fullName: fullName,
+                                                wins: wins,
+                                                losses: losses,
+                                                percentage: percentage)
+                    self.data.append(teamData)
 
-            }
-                
-            DispatchQueue.main.async {
-                self.delegate?.setTeams(incomingData: self.data)
-                self.delegate?.finishLoading()
+                }
+                    
+                DispatchQueue.main.async {
+                    self.delegate?.setTeams(incomingData: self.data)
+                    self.delegate?.finishLoading()
+                }
+            
             }
             
         }

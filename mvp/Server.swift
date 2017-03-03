@@ -11,9 +11,9 @@ import UIKit
 
 class Server {
     
-    func getData(completion: @escaping (_ teams: [[String: Any]] ) -> ()) {
+    func getData(completion: @escaping (_ segments: [[String: Any]] ) -> ()) {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate 
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let dataUrl = appDelegate.dataUrl // Get dataUrl from AppDelegate.swift
         
         let config = URLSessionConfiguration.default // Session Configuration
@@ -30,8 +30,10 @@ class Server {
                 do {
                     
                     if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] {
-                        let teams = json["standing"] as? [[String:Any]]
-                        completion(teams!)
+                        // TODO: send title back to presenter / view
+                        // let title = json["title"] as? String
+                        let segments = json["segments"] as? [[String:Any]]
+                        completion(segments!)
                     }
                     
                 } catch {

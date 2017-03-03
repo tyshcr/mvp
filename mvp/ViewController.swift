@@ -35,10 +35,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
 }
 
+
+// TODO: separate into view
+// TODO: func to create segmented control for segments
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return processedData.count
@@ -56,6 +58,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
+// TODO: separate into view
 extension ViewController: PresenterDelegate {
     func startLoading() {
         spinner.startAnimating()
