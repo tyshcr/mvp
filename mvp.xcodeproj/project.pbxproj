@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		794B20E71E69D03200C1C605 /* EnvironmentExample.plist in Resources */ = {isa = PBXBuildFile; fileRef = 794B20E61E69D03200C1C605 /* EnvironmentExample.plist */; };
 		794B20EA1E69D75C00C1C605 /* nba.json in Resources */ = {isa = PBXBuildFile; fileRef = 794B20E91E69D75C00C1C605 /* nba.json */; };
-		794B20EC1E69D76400C1C605 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 794B20EB1E69D76400C1C605 /* README.md */; };
 		7976760C1E268BF60083CE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976760B1E268BF60083CE2F /* AppDelegate.swift */; };
 		7976760E1E268BF60083CE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976760D1E268BF60083CE2F /* ViewController.swift */; };
 		797676111E268BF60083CE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7976760F1E268BF60083CE2F /* Main.storyboard */; };
@@ -43,7 +42,6 @@
 /* Begin PBXFileReference section */
 		794B20E61E69D03200C1C605 /* EnvironmentExample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnvironmentExample.plist; sourceTree = "<group>"; };
 		794B20E91E69D75C00C1C605 /* nba.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nba.json; sourceTree = SOURCE_ROOT; };
-		794B20EB1E69D76400C1C605 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		797676081E268BF60083CE2F /* mvp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mvp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7976760B1E268BF60083CE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7976760D1E268BF60083CE2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 		794B20E81E69D06700C1C605 /* Supporting FIles */ = {
 			isa = PBXGroup;
 			children = (
-				794B20EB1E69D76400C1C605 /* README.md */,
 				794B20E91E69D75C00C1C605 /* nba.json */,
 				794B20E61E69D03200C1C605 /* EnvironmentExample.plist */,
 				797676171E268BF60083CE2F /* Info.plist */,
@@ -291,7 +288,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				794B20EC1E69D76400C1C605 /* README.md in Sources */,
 				7976763A1E268C170083CE2F /* Team.swift in Sources */,
 				7976760E1E268BF60083CE2F /* ViewController.swift in Sources */,
 				7976763C1E268C320083CE2F /* Presenter.swift in Sources */,

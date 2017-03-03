@@ -8,13 +8,6 @@
 
 import Foundation
 
-struct TeamViewData {
-    let fullName: String
-    let wins: Int
-    let losses: Int
-    let percentage: String
-}
-
 protocol PresenterDelegate {
     func startLoading()
     func finishLoading()
@@ -23,53 +16,23 @@ protocol PresenterDelegate {
 
 class Presenter {
     var delegate: PresenterDelegate?
-    var data = [TeamViewData]()
     
-    init() { }
+    var teamViewData = [TeamViewData]()
+    let model: TeamModel
     
-    func getData() {
-        delegate?.startLoading()
-        
-        data.removeAll()
-        
-        let server = Server()
-        server.getData { (segments: [[String : Any]]) in
-
-            // TODO: send data to Model for formatting, return via model.delegate, pass to view
-            
-            for segment in segments {
-            
-                let teams = segment["rows"] as! [[String:Any]]
-                
-                for team in teams {
-                    
-                    let city = team["name"] as! String
-                    let nickname = team["name"] as! String
-                    let fullName = self.teamName(city: city, nickname: nickname)
-                    
-                    let wins = team["won"] as! Int
-                    let losses = team["loss"] as! Int
-                    let percentage = self.winPercentage(wins: wins, losses: losses)
-                    
-                    let teamData = TeamViewData(fullName: fullName,
-                                                wins: wins,
-                                                losses: losses,
-                                                percentage: percentage)
-                    self.data.append(teamData)
-
-                }
-                    
-                DispatchQueue.main.async {
-                    self.delegate?.setTeams(incomingData: self.data)
-                    self.delegate?.finishLoading()
-                }
-            
-            }
-            
-        }
-        
+    private var teamModelDelegate: TeamModelDelegate!
+    
+    init() {
+        self.model = TeamModel()
+        self.model.delegate = self
     }
     
+    func requestData() {
+        delegate?.startLoading()
+        self.model.runServerCall()
+    }
+    
+    // MARK: Data Manipulation
     func teamName(city: String, nickname: String) -> String {
         return "\(city) \(nickname)"
     }
@@ -86,4 +49,28 @@ class Presenter {
         
         return formattedPercentage
     }
+}
+
+// MARK: TeamModelDelegate
+extension Presenter: TeamModelDelegate {
+    
+    func startingServerCall() {
+        self.delegate?.startLoading()
+    }
+    
+    func teamModelDataReady() {
+        
+        teamViewData.removeAll()
+        
+        for team in model.teamModelData as [TeamModelData] {
+            let fullName = teamName(city: team.city, nickname: team.nickname)
+            let percentage = winPercentage(wins: team.wins, losses: team.losses)
+            teamViewData.append(TeamViewData(fullName: fullName, wins: team.wins, losses: team.losses, percentage: percentage))
+        }
+        
+        self.delegate?.setTeams(incomingData: teamViewData)
+        self.delegate?.finishLoading()
+        
+    }
+    
 }

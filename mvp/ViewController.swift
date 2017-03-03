@@ -8,6 +8,13 @@
 
 import UIKit
 
+struct TeamViewData {
+    let fullName: String
+    let wins: Int
+    let losses: Int
+    let percentage: String
+}
+
 class ViewController: UIViewController {
 
     private var presenter: Presenter!
@@ -27,7 +34,7 @@ class ViewController: UIViewController {
         
         presenter = Presenter()
         presenter.delegate = self
-        presenter.getData()
+        presenter.requestData()
         
     }
 
@@ -38,7 +45,7 @@ class ViewController: UIViewController {
 
 }
 
-
+// MARK: - UITableViewDataSource
 // TODO: separate into view
 // TODO: func to create segmented control for segments
 extension ViewController: UITableViewDataSource {
@@ -58,6 +65,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - PresenterDelegate
 // TODO: separate into view
 extension ViewController: PresenterDelegate {
     func startLoading() {
