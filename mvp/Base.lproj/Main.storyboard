@@ -33,13 +33,17 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="View" customModule="mvp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gYp-CZ-QZL">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8bC-Xf-vdC" id="2qa-VJ-q7k"/>
+                                    <outlet property="delegate" destination="8bC-Xf-vdC" id="ikm-8h-bfA"/>
+                                </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vuH-tv-ysp">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
@@ -54,12 +58,12 @@
                             <constraint firstItem="vuH-tv-ysp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zf6-pj-UqM"/>
                             <constraint firstItem="gYp-CZ-QZL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mjz-fc-6iy"/>
                         </constraints>
+                        <connections>
+                            <outlet property="spinner" destination="vuH-tv-ysp" id="t2V-zM-rhE"/>
+                            <outlet property="tableView" destination="gYp-CZ-QZL" id="5ie-We-NKg"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="U1R-Uz-rtp"/>
-                    <connections>
-                        <outlet property="spinner" destination="vuH-tv-ysp" id="50D-1h-tLP"/>
-                        <outlet property="tableView" destination="gYp-CZ-QZL" id="IRy-XQ-ncE"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

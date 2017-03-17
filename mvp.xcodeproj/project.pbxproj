@@ -20,6 +20,7 @@
 		7976763C1E268C320083CE2F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976763B1E268C320083CE2F /* Presenter.swift */; };
 		797D53531E6721DF008708E0 /* Environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 797D53521E6721DF008708E0 /* Environment.plist */; };
 		79B460FC1E66268300251731 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B460FB1E66268300251731 /* Server.swift */; };
+		79C9D0A91E7C8E4400B82A50 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C9D0A81E7C8E4400B82A50 /* View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		7976763B1E268C320083CE2F /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		797D53521E6721DF008708E0 /* Environment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environment.plist; sourceTree = "<group>"; };
 		79B460FB1E66268300251731 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		79C9D0A81E7C8E4400B82A50 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				7976760F1E268BF60083CE2F /* Main.storyboard */,
 				7976760B1E268BF60083CE2F /* AppDelegate.swift */,
 				7976760D1E268BF60083CE2F /* ViewController.swift */,
+				79C9D0A81E7C8E4400B82A50 /* View.swift */,
 				7976763B1E268C320083CE2F /* Presenter.swift */,
 				797676391E268C170083CE2F /* Team.swift */,
 				79B460FB1E66268300251731 /* Server.swift */,
@@ -290,6 +293,7 @@
 			files = (
 				7976763A1E268C170083CE2F /* Team.swift in Sources */,
 				7976760E1E268BF60083CE2F /* ViewController.swift in Sources */,
+				79C9D0A91E7C8E4400B82A50 /* View.swift in Sources */,
 				7976763C1E268C320083CE2F /* Presenter.swift in Sources */,
 				7976760C1E268BF60083CE2F /* AppDelegate.swift in Sources */,
 				79B460FC1E66268300251731 /* Server.swift in Sources */,
