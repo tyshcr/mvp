@@ -13,7 +13,14 @@ class View: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
+    private var presenter: Presenter!
+    
     var processedData = [TeamViewData]()
+    
+    func configure() {
+        presenter = Presenter()
+        presenter.delegate = self 
+    }
     
     // MARK: - UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {

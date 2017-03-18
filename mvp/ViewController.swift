@@ -16,8 +16,6 @@ struct TeamViewData {
 }
 
 class ViewController: UIViewController {
-
-    private var presenter: Presenter!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -25,11 +23,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        presenter = Presenter()
-        presenter.delegate = self.view as! PresenterDelegate?
-        presenter.requestData()
-        
+        let view = self.view as! View
+        view.configure()        
     }
 
     override func didReceiveMemoryWarning() {

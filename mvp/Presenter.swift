@@ -25,6 +25,8 @@ class Presenter {
     init() {
         self.model = TeamModel()
         self.model.delegate = self
+        
+        self.requestData()
     }
     
     func requestData() {
