@@ -26,16 +26,13 @@ class Presenter {
     init() {
         self.model = TeamModel()
         self.model.delegate = self
-        
-        self.requestData()
     }
     
     func requestData() {
-        delegate?.startLoading()
         self.model.runServerCall()
     }
     
-    // MARK: Data Manipulation
+    // MARK: - Data Manipulation
     func teamName(city: String, nickname: String) -> String {
         return "\(city) \(nickname)"
     }
@@ -53,13 +50,13 @@ class Presenter {
         return formattedPercentage
     }
     
-    // MARK: View Actions
+    // MARK: - View Actions
     func cellTapped() {
         delegate?.pushNewView()
     }
 }
 
-// MARK: TeamModelDelegate
+// MARK: - TeamModelDelegate
 extension Presenter: TeamModelDelegate {
     
     func startingServerCall() {

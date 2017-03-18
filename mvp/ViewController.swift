@@ -25,6 +25,8 @@ class ViewController: UIViewController {
         
         _view = self.view as! View
         _view.configure(presenter: presenter)
+        
+        presenter.requestData()
     }
 
     override func didReceiveMemoryWarning() {

@@ -53,11 +53,11 @@ class TeamModel {
                     self.teamModelData.append(teamData)
                 }
                 
-                DispatchQueue.main.async {
-                    self.delegate?.teamModelDataReady()
-                }
-                
             } // for
+            
+            DispatchQueue.main.async {
+                self.delegate?.teamModelDataReady()
+            }
             
         } // server.getData()
         
