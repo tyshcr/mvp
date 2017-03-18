@@ -8,18 +8,39 @@
 
 import UIKit
 
+struct TeamViewData {
+    let fullName: String
+    let wins: Int
+    let losses: Int
+    let percentage: String
+}
+
+
 class View: UIView, UITableViewDataSource, UITableViewDelegate {
+    
+    private var presenter: Presenter!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    private var presenter: Presenter!
+    var tableData = [TeamViewData]()
     
-    var processedData = [TeamViewData]()
+    func configure(presenter: Presenter!) {
+        self.presenter = presenter
+    }
     
-    func configure() {
-        presenter = Presenter()
-        presenter.delegate = self 
+    // MARK: - View Functions
+    func startSpinner() {
+        spinner.startAnimating()
+    }
+    
+    func stopSpinner() {
+        spinner.stopAnimating()
+    }
+    
+    func updateTableData(data: [TeamViewData]) {
+        tableData = data
+        tableView.reloadData()
     }
     
     // MARK: - UITableViewDelegate
@@ -28,7 +49,7 @@ class View: UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return processedData.count
+        return tableData.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -38,7 +59,7 @@ class View: UIView, UITableViewDataSource, UITableViewDelegate {
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "TeamCell")
-        let currentCellData = processedData[indexPath.row]
+        let currentCellData = tableData[indexPath.row]
         
         cell.textLabel?.text = currentCellData.fullName
         cell.detailTextLabel?.text = "wins:" + String(currentCellData.wins) + "  losses:" + String(currentCellData.losses) + "  pct:" + currentCellData.percentage
@@ -46,22 +67,8 @@ class View: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.setNeedsDisplay()
         return cell
     }
-}
-
-// MARK: - PresenterDelegate
-// TODO: separate into view
-extension View: PresenterDelegate {
-    func startLoading() {
-        spinner.startAnimating()
-    }
     
-    func finishLoading() {
-        spinner.stopAnimating()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.cellTapped()
     }
-    
-    func setTeams(incomingData: [TeamViewData]) {
-        processedData = incomingData
-        self.tableView?.reloadData()
-    }
-    
 }

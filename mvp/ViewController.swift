@@ -8,14 +8,10 @@
 
 import UIKit
 
-struct TeamViewData {
-    let fullName: String
-    let wins: Int
-    let losses: Int
-    let percentage: String
-}
-
 class ViewController: UIViewController {
+    
+    private var presenter: Presenter!
+    var _view: View!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -23,8 +19,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let view = self.view as! View
-        view.configure()        
+        
+        presenter = Presenter()
+        presenter.delegate = self
+        
+        _view = self.view as! View
+        _view.configure(presenter: presenter)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,4 +34,21 @@ class ViewController: UIViewController {
 
 }
 
-
+// MARK: - PresenterDelegate
+extension ViewController: PresenterDelegate {
+    func startLoading() {
+        _view.startSpinner()
+    }
+    
+    func finishLoading() {
+        _view.stopSpinner()
+    }
+    
+    func setTeams(incomingData: [TeamViewData]) {
+        _view.updateTableData(data: incomingData)
+    }
+    
+    func pushNewView() {
+        print("VC PUSH NEW VIEW")
+    }
+}

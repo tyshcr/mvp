@@ -12,6 +12,7 @@ protocol PresenterDelegate {
     func startLoading()
     func finishLoading()
     func setTeams(incomingData: [TeamViewData])
+    func pushNewView()
 }
 
 class Presenter {
@@ -50,6 +51,11 @@ class Presenter {
         }
         
         return formattedPercentage
+    }
+    
+    // MARK: View Actions
+    func cellTapped() {
+        delegate?.pushNewView()
     }
 }
 
