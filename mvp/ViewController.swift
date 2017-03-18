@@ -49,6 +49,6 @@ extension ViewController: PresenterDelegate {
     }
     
     func pushNewView() {
-        print("VC PUSH NEW VIEW")
+        self.performSegue(withIdentifier: "MainVCToDetailVC", sender: self)
     }
 }
