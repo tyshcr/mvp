@@ -56,6 +56,10 @@ class Presenter {
     }
 }
 
+
+// TODO: Add ViewDelegate
+
+
 // MARK: - TeamModelDelegate
 extension Presenter: TeamModelDelegate {
     

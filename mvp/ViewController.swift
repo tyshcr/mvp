@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         presenter = Presenter()
         presenter.delegate = self
         
+        // TODO: Presenter to become ViewDelegate
         _view = self.view as! View
         _view.configure(presenter: presenter)
         

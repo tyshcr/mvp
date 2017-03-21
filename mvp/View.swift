@@ -8,6 +8,8 @@
 
 import UIKit
 
+// TODO: Add ViewDelegate
+
 struct TeamViewData {
     let fullName: String
     let wins: Int
@@ -15,9 +17,9 @@ struct TeamViewData {
     let percentage: String
 }
 
-
 class View: UIView, UITableViewDataSource, UITableViewDelegate {
     
+    // TODO: Call delegate, instead of presenter
     private var presenter: Presenter!
     
     @IBOutlet weak var tableView: UITableView!
@@ -25,6 +27,7 @@ class View: UIView, UITableViewDataSource, UITableViewDelegate {
     
     var tableData = [TeamViewData]()
     
+    // TODO: Call delegate, instead of presenter
     func configure(presenter: Presenter!) {
         self.presenter = presenter
     }
@@ -69,6 +72,7 @@ class View: UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: Call delegate, instead of presenter
         presenter.cellTapped()
     }
 }
