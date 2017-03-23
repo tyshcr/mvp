@@ -33,7 +33,8 @@ class ViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "MainVCToDetailVC") {
-            segue.destination.navigationItem.title = "TEAM NAME"
+            let indexPath = sender as? IndexPath
+            segue.destination.navigationItem.title = model.teamModelData[(indexPath?.row)!].city
         }
     }
 }
@@ -53,6 +54,6 @@ extension ViewController: PresenterDelegate {
     }
     
     func pushTeamView(for indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "MainVCToDetailVC", sender: self)
+        self.performSegue(withIdentifier: "MainVCToDetailVC", sender: indexPath)
     }
 }
