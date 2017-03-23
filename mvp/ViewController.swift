@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     private var presenter: Presenter!
     var _view: View { return self.view as! View }
+    let model: TeamModel = TeamModel()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -20,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter = Presenter.init(view: _view)
+        presenter = Presenter.init(view: _view, model: model)
         presenter.delegate = self
         presenter.requestData()
     }

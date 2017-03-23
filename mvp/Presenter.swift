@@ -25,9 +25,9 @@ class Presenter {
     private var teamModelDelegate: TeamModelDelegate!
     private var viewDelegate: ViewDelegate!
     
-    init(view: View) {
+    init(view: View, model: TeamModel) {
         self.view = view
-        self.model = TeamModel()
+        self.model = model
         self.view.delegate = self
         self.model.delegate = self
     }
