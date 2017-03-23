@@ -30,6 +30,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "MainVCToDetailVC") {
+            segue.destination.navigationItem.title = "TEAM NAME"
+        }
+    }
 }
 
 // MARK: - PresenterDelegate
@@ -46,7 +51,7 @@ extension ViewController: PresenterDelegate {
         _view.updateTableData(data: incomingData)
     }
     
-    func pushNewView() {
+    func pushTeamView(for indexPath: IndexPath) {
         self.performSegue(withIdentifier: "MainVCToDetailVC", sender: self)
     }
 }

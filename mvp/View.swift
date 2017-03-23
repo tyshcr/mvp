@@ -18,7 +18,7 @@ struct TeamViewData {
 }
 
 protocol ViewDelegate {
-    func cellTapped()
+    func tappedCell(at indexPath: IndexPath)
 }
 
 class View: UIView, UITableViewDataSource, UITableViewDelegate {
@@ -69,6 +69,6 @@ class View: UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.cellTapped()
+        delegate?.tappedCell(at: indexPath)
     }
 }

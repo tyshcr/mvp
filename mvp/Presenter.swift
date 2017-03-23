@@ -12,7 +12,7 @@ protocol PresenterDelegate {
     func startLoading()
     func finishLoading()
     func setTeams(incomingData: [TeamViewData])
-    func pushNewView()
+    func pushTeamView(for indexPath: IndexPath)
 }
 
 class Presenter {
@@ -57,10 +57,10 @@ class Presenter {
 }
 
 
-// MARK - Add ViewDelegate
+// MARK - ViewDelegate
 extension Presenter: ViewDelegate {
-    func cellTapped() {
-        delegate?.pushNewView()
+    func tappedCell(at indexPath: IndexPath) {
+        delegate?.pushTeamView(for: indexPath)
     }
 }
 
