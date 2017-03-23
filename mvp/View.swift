@@ -2,8 +2,8 @@
 //  View.swift
 //  mvp
 //
-//  Created by TYSH, CHRISTOPHER R [AG-Contractor/1000] on 3/17/17.
-//  Copyright © 2017 TYSH, CHRISTOPHER R [AG-Contractor/1000]. All rights reserved.
+//  Created by TYSH, CHRISTOPHER R on 3/17/17.
+//  Copyright © 2017 TYSH, CHRISTOPHER R
 //
 
 import UIKit
@@ -17,20 +17,17 @@ struct TeamViewData {
     let percentage: String
 }
 
+protocol ViewDelegate {
+    func cellTapped()
+}
+
 class View: UIView, UITableViewDataSource, UITableViewDelegate {
-    
-    // TODO: Call delegate, instead of presenter
-    private var presenter: Presenter!
+    var delegate: ViewDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var tableData = [TeamViewData]()
-    
-    // TODO: Call delegate, instead of presenter
-    func configure(presenter: Presenter!) {
-        self.presenter = presenter
-    }
     
     // MARK: - View Functions
     func startSpinner() {
@@ -72,7 +69,6 @@ class View: UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Call delegate, instead of presenter
-        presenter.cellTapped()
+        delegate?.cellTapped()
     }
 }

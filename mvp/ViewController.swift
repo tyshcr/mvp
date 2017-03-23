@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     private var presenter: Presenter!
-    var _view: View!
+    var _view: View { return self.view as! View }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -20,13 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter = Presenter()
+        presenter = Presenter.init(view: _view)
         presenter.delegate = self
-        
-        // TODO: Presenter to become ViewDelegate
-        _view = self.view as! View
-        _view.configure(presenter: presenter)
-        
         presenter.requestData()
     }
 

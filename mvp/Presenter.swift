@@ -20,11 +20,15 @@ class Presenter {
     
     var teamViewData = [TeamViewData]()
     let model: TeamModel
+    let view: View
     
     private var teamModelDelegate: TeamModelDelegate!
+    private var viewDelegate: ViewDelegate!
     
-    init() {
+    init(view: View) {
+        self.view = view
         self.model = TeamModel()
+        self.view.delegate = self
         self.model.delegate = self
     }
     
@@ -50,14 +54,15 @@ class Presenter {
         return formattedPercentage
     }
     
-    // MARK: - View Actions
+}
+
+
+// MARK - Add ViewDelegate
+extension Presenter: ViewDelegate {
     func cellTapped() {
         delegate?.pushNewView()
     }
 }
-
-
-// TODO: Add ViewDelegate
 
 
 // MARK: - TeamModelDelegate

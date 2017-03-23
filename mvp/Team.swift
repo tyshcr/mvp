@@ -2,7 +2,7 @@
 //  Team.swift
 //  mvp
 //
-//  Created by TYSH, CHRISTOPHER Ron 1/11/17.
+//  Created by TYSH, CHRISTOPHER R on 1/11/17.
 //  Copyright © 2017 TYSH, CHRISTOPHER R
 //
 
