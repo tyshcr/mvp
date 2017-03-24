@@ -34,7 +34,9 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "MainVCToDetailVC") {
             let indexPath = sender as? IndexPath
-            segue.destination.navigationItem.title = model.teamModelData[(indexPath?.row)!].city
+            let vc = segue.destination as! DetailViewController
+            vc.data = model.teamModelData[(indexPath?.row)!]
+            vc.navigationItem.title = vc.data?.city
         }
     }
 }
