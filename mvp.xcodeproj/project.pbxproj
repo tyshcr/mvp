@@ -22,6 +22,8 @@
 		79B460FC1E66268300251731 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B460FB1E66268300251731 /* Server.swift */; };
 		79C9D0A91E7C8E4400B82A50 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C9D0A81E7C8E4400B82A50 /* MainView.swift */; };
 		79D7E51F1E85B12F0020CD88 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7E51E1E85B12F0020CD88 /* DetailViewController.swift */; };
+		79D7E5241E85BB520020CD88 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7E5231E85BB520020CD88 /* DetailPresenter.swift */; };
+		79D7E5261E85BB840020CD88 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7E5251E85BB840020CD88 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		79B460FB1E66268300251731 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		79C9D0A81E7C8E4400B82A50 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		79D7E51E1E85B12F0020CD88 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		79D7E5231E85BB520020CD88 /* DetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		79D7E5251E85BB840020CD88 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,12 +131,9 @@
 				797676141E268BF60083CE2F /* LaunchScreen.storyboard */,
 				7976760F1E268BF60083CE2F /* Main.storyboard */,
 				7976760B1E268BF60083CE2F /* AppDelegate.swift */,
-				7976760D1E268BF60083CE2F /* MainViewController.swift */,
-				79C9D0A81E7C8E4400B82A50 /* MainView.swift */,
-				79D7E51E1E85B12F0020CD88 /* DetailViewController.swift */,
-				7976763B1E268C320083CE2F /* MainPresenter.swift */,
-				797676391E268C170083CE2F /* TeamModel.swift */,
-				79B460FB1E66268300251731 /* Server.swift */,
+				79D7E5201E85BB160020CD88 /* Main */,
+				79D7E5211E85BB210020CD88 /* Detail */,
+				79D7E5221E85BB2D0020CD88 /* Services */,
 				794B20E81E69D06700C1C605 /* Supporting FIles */,
 				797676121E268BF60083CE2F /* Assets.xcassets */,
 			);
@@ -155,6 +156,35 @@
 				7976762D1E268BF60083CE2F /* Info.plist */,
 			);
 			path = mvpUITests;
+			sourceTree = "<group>";
+		};
+		79D7E5201E85BB160020CD88 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7976760D1E268BF60083CE2F /* MainViewController.swift */,
+				7976763B1E268C320083CE2F /* MainPresenter.swift */,
+				79C9D0A81E7C8E4400B82A50 /* MainView.swift */,
+				797676391E268C170083CE2F /* TeamModel.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		79D7E5211E85BB210020CD88 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				79D7E51E1E85B12F0020CD88 /* DetailViewController.swift */,
+				79D7E5231E85BB520020CD88 /* DetailPresenter.swift */,
+				79D7E5251E85BB840020CD88 /* DetailView.swift */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		79D7E5221E85BB2D0020CD88 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				79B460FB1E66268300251731 /* Server.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +325,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7976763A1E268C170083CE2F /* TeamModel.swift in Sources */,
+				79D7E5261E85BB840020CD88 /* DetailView.swift in Sources */,
 				7976760E1E268BF60083CE2F /* MainViewController.swift in Sources */,
 				79C9D0A91E7C8E4400B82A50 /* MainView.swift in Sources */,
+				79D7E5241E85BB520020CD88 /* DetailPresenter.swift in Sources */,
 				7976763C1E268C320083CE2F /* MainPresenter.swift in Sources */,
 				7976760C1E268BF60083CE2F /* AppDelegate.swift in Sources */,
 				79B460FC1E66268300251731 /* Server.swift in Sources */,

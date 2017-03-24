@@ -10,12 +10,16 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    private var presenter: DetailPresenter!
     var data: TeamModelData?
+    
+    var _view: DetailView { return self.view as! DetailView }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        presenter = DetailPresenter(view: _view, model: data!)
+        presenter.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,4 +47,10 @@ class DetailViewController: UIViewController {
     }
     */
 
+}
+
+extension DetailViewController: DetailPresenterDelegate {
+    func something() {
+        // something
+    }
 }

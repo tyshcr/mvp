@@ -75,18 +75,37 @@
         <!--Detail View Controller-->
         <scene sceneID="u63-we-AHP">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fo9-fb-Twp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="XRs-Gq-mD0" customClass="DetailViewController" customModule="mvp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AJy-Qc-P0X"/>
                         <viewControllerLayoutGuide type="bottom" id="yez-fv-FSb"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="98T-Wr-RdK">
+                    <view key="view" contentMode="scaleToFill" id="98T-Wr-RdK" customClass="DetailView" customModule="mvp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2gv-6B-qFK">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="98T-Wr-RdK" id="nLB-AY-F7q"/>
+                                    <outlet property="delegate" destination="98T-Wr-RdK" id="a4B-Gc-W8y"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2gv-6B-qFK" firstAttribute="height" secondItem="98T-Wr-RdK" secondAttribute="height" id="2dq-Ii-TlT"/>
+                            <constraint firstItem="2gv-6B-qFK" firstAttribute="centerX" secondItem="98T-Wr-RdK" secondAttribute="centerX" id="8xO-bH-nVq"/>
+                            <constraint firstItem="2gv-6B-qFK" firstAttribute="width" secondItem="98T-Wr-RdK" secondAttribute="width" id="o3H-6J-e5S"/>
+                            <constraint firstItem="2gv-6B-qFK" firstAttribute="centerY" secondItem="98T-Wr-RdK" secondAttribute="centerY" id="t1a-Of-FXr"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="tableView" destination="2gv-6B-qFK" id="SoS-fk-yZ4"/>
+                        </connections>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fo9-fb-Twp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="994" y="36"/>
         </scene>
