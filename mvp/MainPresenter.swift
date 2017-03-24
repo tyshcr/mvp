@@ -8,24 +8,24 @@
 
 import Foundation
 
-protocol PresenterDelegate {
+protocol MainPresenterDelegate {
     func startLoading()
     func finishLoading()
     func setTeams(incomingData: [TeamViewData])
     func pushTeamView(for indexPath: IndexPath)
 }
 
-class Presenter {
-    var delegate: PresenterDelegate?
+class MainPresenter {
+    var delegate: MainPresenterDelegate?
     
     var teamViewData = [TeamViewData]()
     let model: TeamModel
-    let view: View
+    let view: MainView
     
     private var teamModelDelegate: TeamModelDelegate!
-    private var viewDelegate: ViewDelegate!
+    private var viewDelegate: MainViewDelegate!
     
-    init(view: View, model: TeamModel) {
+    init(view: MainView, model: TeamModel) {
         self.view = view
         self.model = model
         self.view.delegate = self
@@ -58,7 +58,7 @@ class Presenter {
 
 
 // MARK - ViewDelegate
-extension Presenter: ViewDelegate {
+extension MainPresenter: MainViewDelegate {
     func tappedCell(at indexPath: IndexPath) {
         delegate?.pushTeamView(for: indexPath)
     }
@@ -66,7 +66,7 @@ extension Presenter: ViewDelegate {
 
 
 // MARK: - TeamModelDelegate
-extension Presenter: TeamModelDelegate {
+extension MainPresenter: TeamModelDelegate {
     
     func startingServerCall() {
         self.delegate?.startLoading()

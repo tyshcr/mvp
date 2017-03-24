@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  mvp
 //
 //  Created by TYSH, CHRISTOPHER R on 1/11/17.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
-    private var presenter: Presenter!
-    var _view: View { return self.view as! View }
+    private var presenter: MainPresenter!
+    var _view: MainView { return self.view as! MainView }
     let model: TeamModel = TeamModel()
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter = Presenter.init(view: _view, model: model)
+        presenter = MainPresenter.init(view: _view, model: model)
         presenter.delegate = self
         presenter.requestData()
     }
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - PresenterDelegate
-extension ViewController: PresenterDelegate {
+extension MainViewController: MainPresenterDelegate {
     func startLoading() {
         _view.startSpinner()
     }

@@ -17,12 +17,12 @@ struct TeamViewData {
     let percentage: String
 }
 
-protocol ViewDelegate {
+protocol MainViewDelegate {
     func tappedCell(at indexPath: IndexPath)
 }
 
-class View: UIView, UITableViewDataSource, UITableViewDelegate {
-    var delegate: ViewDelegate?
+class MainView: UIView, UITableViewDataSource, UITableViewDelegate {
+    var delegate: MainViewDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
