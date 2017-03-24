@@ -1,5 +1,5 @@
 //
-//  Presenter.swift
+//  MainPresenter.swift
 //  mvp
 //
 //  Created by TYSH, CHRISTOPHER R on 1/11/17.

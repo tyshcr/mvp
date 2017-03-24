@@ -1,5 +1,5 @@
 //
-//  View.swift
+//  MainView.swift
 //  mvp
 //
 //  Created by TYSH, CHRISTOPHER R on 3/17/17.

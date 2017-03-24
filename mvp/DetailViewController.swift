@@ -20,15 +20,11 @@ class DetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         let alertController = UIAlertController(title: "Title", message: "\(data!)", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-        {
-            (result : UIAlertAction) -> Void in
-            print("You pressed OK")
-        }
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
-
     }
 
     override func didReceiveMemoryWarning() {
