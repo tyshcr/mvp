@@ -38,20 +38,11 @@ class MainPresenter {
     
     // MARK: - Data Manipulation
     func teamName(city: String, nickname: String) -> String {
-        return "\(city) \(nickname)"
+        return model.teamName(city: city, nickname: nickname)
     }
     
     func winPercentage(wins: Int, losses: Int) -> String {
-        let games = wins + losses
-        let percentage = Float(wins) / Float(games)
-        var formattedPercentage =  String(format: "%.3f", percentage)
-        
-        if (percentage<1.0) {
-            let index = formattedPercentage.index(formattedPercentage.startIndex, offsetBy: 1)
-            formattedPercentage = formattedPercentage.substring(from: index)
-        }
-        
-        return formattedPercentage
+        return model.winPercentage(wins: wins, losses: losses)
     }
     
 }
@@ -73,18 +64,8 @@ extension MainPresenter: TeamModelDelegate {
     }
     
     func teamModelDataReady() {
-        
-        teamViewData.removeAll()
-        
-        for team in model.teamModelData as [TeamModelData] {
-            let fullName = teamName(city: team.city, nickname: team.nickname)
-            let percentage = winPercentage(wins: team.wins, losses: team.losses)
-            teamViewData.append(TeamViewData(fullName: fullName, wins: team.wins, losses: team.losses, percentage: percentage))
-        }
-        
-        self.delegate?.setTeams(incomingData: teamViewData)
+        self.delegate?.setTeams(incomingData: model.teamViewData)
         self.delegate?.finishLoading()
-        
     }
     
 }

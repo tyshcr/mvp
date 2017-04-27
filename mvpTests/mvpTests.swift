@@ -11,16 +11,16 @@ import XCTest
 
 class mvpTests: XCTestCase {
     
-    var view: MainView!
     var model: TeamModel!
-    var presenter: MainPresenter!
+//    var view: MainView!
+//    var presenter: MainPresenter!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        view = MainView()
         model = TeamModel()
-        presenter = MainPresenter(view: view, model: model)
+//        view = MainView()
+//        presenter = MainPresenter(view: view, model: model)
     }
     
     override func tearDown() {
@@ -43,34 +43,34 @@ class mvpTests: XCTestCase {
     func testTeamName() {
         let city = "Cleveland"
         let nickname = "Cavaliers"
-        let fullName = presenter.teamName(city: city, nickname: nickname)
+        let fullName = model.teamName(city: city, nickname: nickname)
         XCTAssertTrue(fullName=="Cleveland Cavaliers")
     }
     
     func testWinPercentage() {
         var wins = 10
         var losses = 10
-        var percentage = presenter.winPercentage(wins: wins, losses: losses)
+        var percentage = model.winPercentage(wins: wins, losses: losses)
         XCTAssertTrue(percentage==".500")
         
         wins = 20
         losses = 0
-        percentage = presenter.winPercentage(wins: wins, losses: losses)
+        percentage = model.winPercentage(wins: wins, losses: losses)
         XCTAssertTrue(percentage=="1.000")
         
         wins = 0
         losses = 20
-        percentage = presenter.winPercentage(wins: wins, losses: losses)
+        percentage = model.winPercentage(wins: wins, losses: losses)
         XCTAssertTrue(percentage==".000")
         
         wins = 15
         losses = 5
-        percentage = presenter.winPercentage(wins: wins, losses: losses)
+        percentage = model.winPercentage(wins: wins, losses: losses)
         XCTAssertTrue(percentage==".750")
         
         wins = 5
         losses = 15
-        percentage = presenter.winPercentage(wins: wins, losses: losses)
+        percentage = model.winPercentage(wins: wins, losses: losses)
         XCTAssertTrue(percentage==".250")
     }
     
