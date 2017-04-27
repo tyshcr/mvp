@@ -11,11 +11,16 @@ import XCTest
 
 class mvpTests: XCTestCase {
     
-    let presenter = Presenter()
+    var view: MainView!
+    var model: TeamModel!
+    var presenter: MainPresenter!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        view = MainView()
+        model = TeamModel()
+        presenter = MainPresenter(view: view, model: model)
     }
     
     override func tearDown() {
