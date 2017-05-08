@@ -8,15 +8,23 @@
 
 import Foundation
 
-protocol MainPresenterDelegate {
+protocol MainPresenterDelegate: class {
     func startLoading()
     func finishLoading()
     func setTeams(incomingData: [TeamViewData])
     func pushTeamView(for indexPath: IndexPath)
 }
 
-class MainPresenter {
-    var delegate: MainPresenterDelegate?
+protocol MainPresenterInterface: class {
+    var delegate: MainPresenterDelegate? { get set }
+    
+    func requestData()
+    func teamName(city: String, nickname: String) -> String
+    func winPercentage(wins: Int, losses: Int) -> String
+}
+
+class MainPresenter: MainPresenterInterface {
+    weak var delegate: MainPresenterDelegate?
     
     var teamViewData = [TeamViewData]()
     let model: TeamModel
