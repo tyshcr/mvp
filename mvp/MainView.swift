@@ -17,19 +17,27 @@ struct TeamViewData {
     let percentage: String
 }
 
-protocol MainViewDelegate {
+protocol MainViewDelegate: class {
     func tappedCell(at indexPath: IndexPath)
 }
 
-class MainView: UIView, UITableViewDataSource, UITableViewDelegate {
-    var delegate: MainViewDelegate?
+protocol MainViewInterface: class {
+    var delegate: MainViewDelegate? { get set }
+    
+    func startSpinner()
+    func stopSpinner()
+    func updateTableData(data: [TeamViewData])
+}
+
+class MainView: UIView, MainViewInterface, UITableViewDataSource, UITableViewDelegate {
+    weak var delegate: MainViewDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var tableData = [TeamViewData]()
     
-    // MARK: - View Functions
+    // MARK: - MainViewInterface
     func startSpinner() {
         spinner.startAnimating()
     }

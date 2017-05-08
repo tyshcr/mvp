@@ -28,12 +28,12 @@ class MainPresenter: MainPresenterInterface {
     
     var teamViewData = [TeamViewData]()
     let model: TeamModel
-    let view: MainView
+    let view: MainViewInterface
     
     private var teamModelDelegate: TeamModelDelegate!
     private var viewDelegate: MainViewDelegate!
     
-    init(view: MainView, model: TeamModel) {
+    init(view: MainViewInterface, model: TeamModel) {
         self.view = view
         self.model = model
         self.view.delegate = self
@@ -56,7 +56,7 @@ class MainPresenter: MainPresenterInterface {
 }
 
 
-// MARK - ViewDelegate
+// MARK - MainViewDelegate
 extension MainPresenter: MainViewDelegate {
     func tappedCell(at indexPath: IndexPath) {
         delegate?.pushTeamView(for: indexPath)
