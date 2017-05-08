@@ -19,6 +19,7 @@ protocol MainPresenterInterface: class {
     var delegate: MainPresenterDelegate? { get set }
     
     func requestData()
+    // TODO: make these functions private ?
     func teamName(city: String, nickname: String) -> String
     func winPercentage(wins: Int, losses: Int) -> String
 }
@@ -27,13 +28,10 @@ class MainPresenter: MainPresenterInterface {
     weak var delegate: MainPresenterDelegate?
     
     var teamViewData = [TeamViewData]()
-    let model: TeamModel
+    let model: TeamModelInterface
     let view: MainViewInterface
     
-    private var teamModelDelegate: TeamModelDelegate!
-    private var viewDelegate: MainViewDelegate!
-    
-    init(view: MainViewInterface, model: TeamModel) {
+    init(view: MainViewInterface, model: TeamModelInterface) {
         self.view = view
         self.model = model
         self.view.delegate = self

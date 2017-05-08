@@ -15,25 +15,29 @@ struct TeamModelData {
     var losses: Int
 }
 
-protocol TeamModelDelegate {
+protocol TeamModelDelegate: class {
     func startingServerCall()
     func teamModelDataReady()
 }
 
-protocol TeamModelInterface {
+protocol TeamModelInterface: class {
+    var delegate: TeamModelDelegate? { get set }
+    var teamModelData: [TeamModelData] { get }
     var teamViewData: [TeamViewData] { get }
+    
+    // TODO: make teamViewData() into var ?
+    func runServerCall()
+    func teamViewData(teamModeData: [TeamModelData]) -> [TeamViewData]
     func teamName(city: String, nickname: String) -> String
     func winPercentage(wins: Int, losses: Int) -> String
 }
 
-class TeamModel {
+class TeamModel: TeamModelInterface {
     
-    var delegate: TeamModelDelegate?
+    weak var delegate: TeamModelDelegate?
     var teamModelData = [TeamModelData]()
     var teamViewData = [TeamViewData]()
     let server = Server()
-    
-    init() { }
     
     func runServerCall() {
         

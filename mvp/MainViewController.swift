@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     
     private var presenter: MainPresenter!
     var _view: MainViewInterface { return self.view as! MainViewInterface }
-    let model: TeamModel = TeamModel()
+    let model: TeamModelInterface = TeamModel() as TeamModelInterface
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
