@@ -78,5 +78,6 @@ class MainView: UIView, MainViewInterface, UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.tappedCell(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

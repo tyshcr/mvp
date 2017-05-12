@@ -41,13 +41,15 @@ class DetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "TeamCell")
         var value: String {
+            guard let tableData = tableData else { return "" }
+            
             switch indexPath.row {
             case 1:
-                return "\(tableData?.wins)"
+                return "Wins: \(tableData.wins)"
             case 2:
-                return "\(tableData?.losses)"
+                return "Losses: \(tableData.losses)"
             default:
-                return "\(tableData?.city) \(tableData?.nickname)"
+                return "\(tableData.city) \(tableData.nickname)"
             }
         }
         

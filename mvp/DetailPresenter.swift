@@ -19,11 +19,8 @@ class DetailPresenter {
     
     init(view: DetailView, model: TeamModelData) {
         self.model = model
-        
         self.view = view
-        
         self.view?.delegate = self
-        
         self.view?.updateTableData(data: model)
     }
 }
