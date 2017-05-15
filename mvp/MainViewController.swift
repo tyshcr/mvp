@@ -43,13 +43,6 @@ class MainViewController: UIViewController {
 
 // MARK: - PresenterDelegate
 extension MainViewController: MainPresenterDelegate {
-    func startLoading() {
-        _view.startSpinner()
-    }
-    
-    func finishLoading() {
-        _view.stopSpinner()
-    }
     
     func setTeams(incomingData: [TeamViewData]) {
         _view.updateTableData(data: incomingData)

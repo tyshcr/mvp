@@ -9,8 +9,6 @@
 import Foundation
 
 protocol MainPresenterDelegate: class {
-    func startLoading()
-    func finishLoading()
     func setTeams(incomingData: [TeamViewData])
     func pushTeamView(for indexPath: IndexPath)
 }
@@ -53,12 +51,12 @@ extension MainPresenter: MainViewDelegate {
 extension MainPresenter: TeamModelDelegate {
     
     func startingServerCall() {
-        self.delegate?.startLoading()
+        self.view.startSpinner()
     }
     
     func teamModelDataReady() {
         self.delegate?.setTeams(incomingData: model.teamViewData)
-        self.delegate?.finishLoading()
+        self.view.stopSpinner()
     }
     
 }
