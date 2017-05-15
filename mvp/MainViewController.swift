@@ -43,11 +43,6 @@ class MainViewController: UIViewController {
 
 // MARK: - PresenterDelegate
 extension MainViewController: MainPresenterDelegate {
-    
-    func setTeams(incomingData: [TeamViewData]) {
-        _view.updateTableData(data: incomingData)
-    }
-    
     func pushTeamView(for indexPath: IndexPath) {
         self.performSegue(withIdentifier: "MainVCToDetailVC", sender: indexPath)
     }

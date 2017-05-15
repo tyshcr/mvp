@@ -9,7 +9,6 @@
 import Foundation
 
 protocol MainPresenterDelegate: class {
-    func setTeams(incomingData: [TeamViewData])
     func pushTeamView(for indexPath: IndexPath)
 }
 
@@ -55,7 +54,7 @@ extension MainPresenter: TeamModelDelegate {
     }
     
     func teamModelDataReady() {
-        self.delegate?.setTeams(incomingData: model.teamViewData)
+        self.view.updateTableData(data: model.teamViewData)
         self.view.stopSpinner()
     }
     
