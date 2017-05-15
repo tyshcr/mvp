@@ -17,11 +17,7 @@ protocol MainPresenterDelegate: class {
 
 protocol MainPresenterInterface: class {
     var delegate: MainPresenterDelegate? { get set }
-    
     func requestData()
-    // TODO: make these functions private ?
-    func teamName(city: String, nickname: String) -> String
-    func winPercentage(wins: Int, losses: Int) -> String
 }
 
 class MainPresenter: MainPresenterInterface {
@@ -40,15 +36,6 @@ class MainPresenter: MainPresenterInterface {
     
     func requestData() {
         self.model.runServerCall()
-    }
-    
-    // MARK: - Data Manipulation
-    func teamName(city: String, nickname: String) -> String {
-        return model.teamName(city: city, nickname: nickname)
-    }
-    
-    func winPercentage(wins: Int, losses: Int) -> String {
-        return model.winPercentage(wins: wins, losses: losses)
     }
     
 }
